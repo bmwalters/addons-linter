@@ -90,3 +90,10 @@ export const RESERVED_FILENAME = {
   description: i18n._(oneLine`Files whose names are reserved have been found in
     the add-on. Please refrain from using them and rename your files.`),
 };
+
+export const CHROMIUM_ILLEGAL_FILENAME = {
+  code: 'CHROMIUM_ILLEGAL_FILENAME',
+  message: i18n._('Filename illegal in Chromium found.'),
+  description: i18n._(oneLine`Files whose names start with "_" cannot be used
+    in Chromium and its derivatives. Please rename these files.`),
+};

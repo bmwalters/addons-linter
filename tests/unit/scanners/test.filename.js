@@ -181,3 +181,40 @@ describe('Reserved file names', () => {
     });
   });
 });
+
+describe('Chrome illegal file names', () => {
+  const disallowedFileNames = ['foo/_bar', '_baz.txt', '_metadata'];
+
+  it.each(disallowedFileNames)(
+    'should match %p as an illegal file',
+    async (filePath) => {
+      const filenameScanner = new FilenameScanner('', filePath);
+
+      const { linterMessages } = await filenameScanner.scan();
+      expect(linterMessages.length).toEqual(1);
+      expect(linterMessages[0].code).toEqual(
+        messages.CHROMIUM_ILLEGAL_FILENAME.code
+      );
+      expect(linterMessages[0].message).toEqual(
+        'Filename illegal in Chromium found.'
+      );
+      expect(linterMessages[0].description).toMatch(
+        /^Files whose names start with "_"/
+      );
+      expect(linterMessages[0].file).toEqual(filePath);
+    }
+  );
+
+  const allowedFileNames = ['_locales', '_platform_specific', 'a_foo_'];
+
+  it.each(allowedFileNames)(
+    'should not match %p as an illegal file',
+    async (filePath) => {
+      const filenameScanner = new FilenameScanner('', filePath);
+
+      await expect(filenameScanner.scan()).rejects.toThrow(
+        `Filename didn't match a regex: ${filePath}.`
+      );
+    }
+  );
+});

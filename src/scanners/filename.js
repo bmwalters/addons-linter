@@ -31,6 +31,15 @@ export default class FilenameScanner extends BaseScanner {
         type: constants.VALIDATION_WARNING,
         file: this.filename,
       });
+    } else if (
+      filenameWithoutPath.startsWith('_') &&
+      !constants.CHROMIUM_ILLEGAL_FILE_WHITELIST.includes(filenameWithoutPath)
+    ) {
+      this.linterMessages.push({
+        ...messages.CHROMIUM_ILLEGAL_FILENAME,
+        type: constants.VALIDATION_WARNING,
+        file: this.filename,
+      });
     } else if (constants.FLAGGED_FILE_EXTENSIONS.includes(extension)) {
       this.linterMessages.push({
         ...messages.FLAGGED_FILE_EXTENSION,

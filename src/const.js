@@ -117,6 +117,12 @@ export const IMAGE_FILE_EXTENSIONS = [
   'svg',
 ];
 
+// https://source.chromium.org/chromium/chromium/src/+/master:extensions/common/file_util.cc;l=360-391;drc=a2e94b75b5a575c1e5838658e331744cad588b12
+export const CHROMIUM_ILLEGAL_FILE_WHITELIST = [
+  '_locales',
+  '_platform_specific',
+];
+
 // Map the image mime to the expected file extensions
 // (used in the the static theme images validation).
 export const MIME_TO_FILE_EXTENSIONS = {

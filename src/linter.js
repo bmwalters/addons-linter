@@ -304,6 +304,10 @@ export default class Linter {
     if (
       filename.match(constants.HIDDEN_FILE_REGEX) ||
       filename.match(constants.FLAGGED_FILE_REGEX) ||
+      (filename.startsWith('_') &&
+        !constants.CHROMIUM_ILLEGAL_FILE_WHITELIST.includes(
+          filenameWithoutPath
+        )) ||
       constants.FLAGGED_FILE_EXTENSIONS.includes(path.extname(filename)) ||
       filename.match(constants.ALREADY_SIGNED_REGEX) ||
       constants.RESERVED_FILENAMES.includes(filenameWithoutPath)

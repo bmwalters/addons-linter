@@ -52,17 +52,18 @@ Rules are sorted by severity.
 
 ## Package layout
 
-| Message code               | Severity | Description                                         |
-| -------------------------- | -------- | --------------------------------------------------- |
-| `MOZILLA_COND_OF_USE`      | notice   | Mozilla conditions of use violation.                |
-| `FLAGGED_FILE_TYPE`        | notice   | (Binary) Flagged file type found.                   |
-| `FLAGGED_FILE_EXTENSION`   | warning  | Flagged file extensions found                       |
-| `DUPLICATE_XPI_ENTRY`      | warning  | Package contains duplicate entries                  |
-| `ALREADY_SIGNED`           | warning  | Already signed                                      |
-| `COINMINER_USAGE_DETECTED` | warning  | Firefox add-ons are not allowed to run coin miners. |
-| `BAD_ZIPFILE`              | error    | Bad zip file                                        |
-| `FILE_TOO_LARGE`           | error    | File is too large to parse                          |
-| `RESERVED_FILENAME`        | error    | Reserved filename detected.                         |
+| Message code                | Severity | Description                                         |
+| --------------------------- | -------- | --------------------------------------------------- |
+| `MOZILLA_COND_OF_USE`       | notice   | Mozilla conditions of use violation.                |
+| `FLAGGED_FILE_TYPE`         | notice   | (Binary) Flagged file type found.                   |
+| `FLAGGED_FILE_EXTENSION`    | warning  | Flagged file extensions found                       |
+| `DUPLICATE_XPI_ENTRY`       | warning  | Package contains duplicate entries                  |
+| `ALREADY_SIGNED`            | warning  | Already signed                                      |
+| `COINMINER_USAGE_DETECTED`  | warning  | Firefox add-ons are not allowed to run coin miners. |
+| `BAD_ZIPFILE`               | error    | Bad zip file                                        |
+| `FILE_TOO_LARGE`            | error    | File is too large to parse                          |
+| `RESERVED_FILENAME`         | error    | Reserved filename detected.                         |
+| `CHROMIUM_ILLEGAL_FILENAME` | warning  | Filename illegal in Chromium found.                 |
 
 ## Type detection
 
